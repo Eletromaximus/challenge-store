@@ -3,40 +3,38 @@ import Text from '../foundation/Text'
 import Button from '../foundation/Button'
 
 interface IProduct {
-  product: {
-    id: number,
-    name: string,
-    price: number,
-    score: number,
-    image: string
-  }
+  id: number,
+  name: string,
+  price: number,
+  score: number,
+  image: string
 }
-export default function Card ({ product }: IProduct) {
+export default function Card ({ 
+  price, name, image
+ }: IProduct) {
   return (
     <CardStyle>
-
       <Button
         style={{
           borderRadius: '5px'
         }}
       >
         <img
-          src={`../assets/${product.image}`}
-          alt={product.name}
+          src={`../assets/${image}`}
+          alt={name}
         />
         <Text
           margin='20px 0 0 20px'
         >
-          {product.name}
+          {name}
         </Text>
         <Text
           variant='title'
           margin='10px 0 0 20px'
         >
-          R$ {product.price}
+          R$ {price}
         </Text>
       </Button>
-
     </CardStyle>
   )
 }

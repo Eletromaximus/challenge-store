@@ -1,6 +1,4 @@
-// import { Box } from '../../components/foundation/layout/Box'
 import { Grid } from '../../components/foundation/layout/Grid'
-// import Menu from '../../components/Menu'
 import { Banner, ListStyle, Navbar } from './styles'
 import { IProducts, products } from '../../components/Products'
 import Button from '../../components/foundation/Button'
@@ -15,64 +13,68 @@ export default function Home () {
     <WebSitePageWrapper
       menuProps={true}
     >
-
       <Banner>
-          Banner
+        Banner
       </Banner>
 
-        <Grid.Col
-          value={{
-            md: 10
-          }}
-          offset={{
-            md: 1
-          }}
-          padding='0'
-        >
-          <Navbar>
-            <Button
-              onClick={
-                () => setItems('price')
-              }
-            >
-              Preço
-            </Button>
+      <Grid.Col
+        value={{
+          md: 10
+        }}
+        offset={{
+          md: 1
+        }}
+        padding='0'
+      >
+        <Navbar>
+          <Button
+            onClick={
+              () => setItems('price')
+            }
+          >
+            Preço
+          </Button>
 
-            <Button
-              onClick={
-                () => setItems('id')
-              }
-            >
-              id
-            </Button>
+          <Button
+            onClick={
+              () => setItems('id')
+            }
+          >
+            id
+          </Button>
 
-            <Button
-              onClick={
-                () => setItems('score')
-              }
-            >
-              Score
-            </Button>
+          <Button
+            onClick={
+              () => setItems('score')
+            }
+          >
+            Score
+          </Button>
 
-            <Button
-              onClick={
-                () => setItems('name')
-              }
-            >
-              Nome
-            </Button>
-          </Navbar>
+          <Button
+            onClick={
+              () => setItems('name')
+            }
+          >
+            Nome
+          </Button>
+        </Navbar>
 
-          <ListStyle>
-            {items && items.map((item: IProducts) => {
-              return <li key={item.id}>
-                <Card product={item} />
-              </li>
-            })}
-          </ListStyle>
-
-        </Grid.Col>
-
+        <ListStyle>
+          {items && items.map((item: IProducts) => {
+            return <li key={item.id}>
+              <Card
+                id={item.id}
+                image={item.image}
+                name={item.name}
+                price={item.price}
+                score={item.score}
+              />
+            </li>
+          }
+        )}
+      </ListStyle>
+      </Grid.Col>
     </WebSitePageWrapper>
   )
 }
