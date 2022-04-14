@@ -1,24 +1,24 @@
 import { useReducer, createContext, ReactNode } from 'react'
-import { reducerMovie, ActionMovie, IMovie } from './ShoppingCartContext'
+import { reducerProduct, ActionProduct, IProduct } from './ShoppingCartContext'
 
-const INITIAL_STATE_MOVIE: IMovie[] = []
+const INITIAL_STATE_MOVIE: IProduct[] = []
 
-export const Context = createContext({
-  movie: INITIAL_STATE_MOVIE,
-  dispatchMovie: (action: ActionMovie) => {},
+export const ContextCart = createContext({
+  product: INITIAL_STATE_MOVIE,
+  dispatchProduct: (action: ActionProduct) => {}
 })
 
-interface IContext {
+interface ICart {
   children: ReactNode
 }
 
-export default function ContextProvider ({ children }: IContext) {
-  const [movie, dispatchMovie] = useReducer(reducerMovie, [])
+export default function ContextProvider ({ children }: ICart) {
+  const [product, dispatchProduct] = useReducer(reducerProduct, [])
 
-  return <Context.Provider value={{
-    movie,
-    dispatchMovie,
+  return <ContextCart.Provider value={{
+    product,
+    dispatchProduct
   }}>
     {children}
-  </Context.Provider>
+  </ContextCart.Provider>
 }

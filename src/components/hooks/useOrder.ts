@@ -11,10 +11,10 @@ interface IProducts {
 export default function useOrder (listItens : IProducts[]): [IProducts[] | null, (arg: string) => void] {
   const [items, setItems] = useState('id')
 
-  function listId() {
+  function listId () {
     return listItens
       .sort((a, b) => {
-        if(a.id < b.id) {
+        if (a.id < b.id) {
           return -1
         } else {
           return 0

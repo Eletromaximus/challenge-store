@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components'
 import { createContext } from 'react'
-import useTheme from '../../../hooks/useTheme'
+import useTheme from '../../hooks/useTheme'
 import GlobalStyle from '../../../theme/GlobalStyle'
 
 export const ModeContext = createContext({

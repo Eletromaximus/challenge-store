@@ -5,7 +5,7 @@ export const dark = {
   title: 'dark',
 
   colors: {
-    text: '#fafdf6',
+    text: '#211B1B',
     primary: '#D61616',
     secundary: '#FCFCFC',
 
@@ -21,7 +21,7 @@ export const light = {
   title: 'light',
 
   colors: {
-    text: '#211B1B',
+    text: '#fafdf6',
     primary: '#3D42D4',
     secundary: '#FCFCFC',
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { DefaultTheme } from 'styled-components'
-import { dark, light } from '../theme/index'
+import { dark, light } from '../../theme/index'
 
 export default function useTheme ():[DefaultTheme, () => void] {
   const [theme, setTheme] = useState(light)

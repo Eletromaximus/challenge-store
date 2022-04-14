@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box } from '../foundation/layout/Box'
+import { ReactNode } from 'react'
+import { Box } from '../layout/Box'
 import Menu from '../Menu'
 
 interface IWebSiteWrapper {
-  children: React.ReactNode,
+  children: ReactNode,
   menuProps?: boolean
 }
 
@@ -22,7 +22,3 @@ export default function WebSitePageWrapper ({
     </Box>
   )
 }
-
-// WebSitePageWrapper.defaulProps = {
-//   menuProps: true
-// }

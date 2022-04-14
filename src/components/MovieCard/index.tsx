@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
 import { Delete } from '@mui/icons-material'
-import { Box } from '../../components/layout/Box'
+import { Box } from '../layout/Box'
 
 interface IMovieCard {
   title: string,

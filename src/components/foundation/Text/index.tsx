@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import React from 'react'
+import { ReactNode } from 'react'
 import typographyVariants from '../../../theme/typographyVariants'
 import propToStyle from '../../../theme/utils/propsToStyle'
 
@@ -7,7 +7,7 @@ interface Props {
   tag: 'p' | 'span' | 'h1' | 'h2' | 'h3' | any;
   variant: string;
   textAlign?: string | object;
-  children: string | number | React.ReactNode;
+  children: string | number | ReactNode;
   color?: string;
   name?: string;
   href?: string | object;

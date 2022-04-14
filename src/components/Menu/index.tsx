@@ -1,11 +1,29 @@
-import { MenuWrapper } from './styles'
+import { IconContainer, MenuWrapper } from './styles'
 import Text from '../foundation/Text'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { ModeContext } from '../WebSiteWrapper/provider'
 import Button from '../foundation/Button'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { ContextCart } from '../Provider'
 
 export default function Menu () {
   const modeChange = useContext(ModeContext)
+  const { product } = useContext(ContextCart)
+  const [like, setLike] = useState(true)
+
+  useEffect(() => {
+    if (product.length > 0) {
+      setLike(true)
+    } else {
+      setLike(false)
+    }
+  })
+
+  const changeIcon =
+    like === false
+      ? <FavoriteBorderIcon />
+      : <FavoriteIcon />
 
   return (
     <MenuWrapper>
@@ -14,6 +32,7 @@ export default function Menu () {
       >
         Game Shop
       </Text>
+
       <Button
         onClick={
           () => modeChange.toggleModeContext()
@@ -21,6 +40,10 @@ export default function Menu () {
       >
         Light/Dark
       </Button>
+
+      <IconContainer>
+        {changeIcon}
+      </IconContainer>
     </MenuWrapper>
   )
 }

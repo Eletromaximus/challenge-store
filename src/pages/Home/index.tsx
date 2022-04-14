@@ -1,9 +1,9 @@
-import { Grid } from '../../components/foundation/layout/Grid'
-import { Banner, ListStyle, Navbar } from './styles'
-import { IProducts, products } from '../../components/Products'
+import { Grid } from '../../components/layout/Grid'
+import { ListStyle, Navbar } from './styles'
+import { products } from '../../components/Products'
 import Button from '../../components/foundation/Button'
-import useOrder from '../../hooks/useOrder'
-import Card from '../../components/Card'
+import useOrder from '../../components/hooks/useOrder'
+import Card, { IProduct } from '../../components/Card'
 import WebSitePageWrapper from '../../components/WebSiteWrapper'
 
 export default function Home () {
@@ -13,10 +13,6 @@ export default function Home () {
     <WebSitePageWrapper
       menuProps={true}
     >
-      <Banner>
-        Banner
-      </Banner>
-
       <Grid.Col
         value={{
           md: 10
@@ -61,7 +57,7 @@ export default function Home () {
         </Navbar>
 
         <ListStyle>
-          {items && items.map((item: IProducts) => {
+          {items && items.map((item: IProduct) => {
             return <li key={item.id}>
               <Card
                 id={item.id}
@@ -71,8 +67,7 @@ export default function Home () {
                 score={item.score}
               />
             </li>
-          }
-        )}
+          })}
       </ListStyle>
       </Grid.Col>
     </WebSitePageWrapper>

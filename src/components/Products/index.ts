@@ -5,6 +5,7 @@ export interface IProducts {
   score: number,
   image: string
 }
+
 export const products: IProducts[] = [
   {
     id: 312,

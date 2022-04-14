@@ -1,22 +1,22 @@
-import React from 'react'
+import { ReactNode } from 'react'
 import styled from 'styled-components'
 import propToStyle from '../../../theme/utils/propsToStyle'
 import { TextStyleVariants } from '../Text'
 // import get from 'lodash/get'
 
 interface IButton {
-  variant: string;
-  target?: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-  href?: string;
-  paddingRight?: string | object;
-  padding?: string | object | number;
-  margin?: string | object | number;
-  name?: string;
-  color?: string;
-  width?: string;
-  style?: object;
+  variant: string,
+  target?: string,
+  children: ReactNode,
+  onClick?: () => void,
+  href?: string,
+  paddingRight?: string | object,
+  padding?: string | object | number,
+  margin?: string | object | number,
+  name?: string,
+  color?: string,
+  width?: string,
+  style?: object
 }
 
 const ButtonBase = styled.button<IButton>`
@@ -28,7 +28,7 @@ const ButtonBase = styled.button<IButton>`
   ${propToStyle('padding')};
   ${propToStyle('width')};
 
-  // color: ${({ theme }) => theme.colors.secundary};
+  color: ${({ theme }) => theme.colors.text};
   background-color: transparent;
   border: none;
 `

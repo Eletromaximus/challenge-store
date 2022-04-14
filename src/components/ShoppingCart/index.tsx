@@ -1,8 +1,8 @@
 import Button from '@mui/material/Button'
 import Delete from '@mui/icons-material/Delete'
 import { useContext } from 'react'
-import { Box } from '../layout/Box'  
-import { Context } from '../Provider'
+import { Box } from '../layout/Box'
+import { ContextCart } from '../Provider'
 import MovieCard from '../MovieCard'
 
 interface IShoppingCart {
@@ -10,7 +10,7 @@ interface IShoppingCart {
 }
 
 export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
-  const { movie, dispatchMovie } = useContext(Context)
+  const { product, dispatchProduct } = useContext(ContextCart)
 
   return (
     <aside
@@ -47,25 +47,24 @@ export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
               variant='outlined'
               endIcon={<Delete />}
               size='small'
-              onClick={() => dispatchMovie({ type: 'cleanCart' })}
+              onClick={() => dispatchProduct({ type: 'cleanCart' })}
             >
               Esvaziar
             </Button>
           </Box>
 
-            {movie.length > 0 && movie.map((item) => (
-              <MovieCard
-                nProduct={item.nProduct}
-                price={item.price}
-                removeMovie={() => dispatchMovie({
-                  type: 'removeMovie',
-                  imdb: item.imdbId
-                })}
-                title={item.title}
-                key={item.imdbId}
-              />
-            ))}
-
+          {product.length > 0 && product.map((item) => (
+            <MovieCard
+              nProduct={item.nProduct}
+              price={item.game.price}
+              removeMovie={() => dispatchProduct({
+                type: 'removeProduct',
+                payload: item
+              })}
+              title={item.game.name}
+              key={item.game.id}
+            />
+          ))}
         </Box>
       </aside>
   )
