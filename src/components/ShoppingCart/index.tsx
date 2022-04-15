@@ -1,9 +1,10 @@
 import Button from '@mui/material/Button'
-import Delete from '@mui/icons-material/Delete'
-import { useContext } from 'react'
+import { Delete, Close } from '@mui/icons-material'
+import { useContext, useEffect } from 'react'
 import { Box } from '../layout/Box'
 import { ContextCart } from '../Provider'
-import MovieCard from '../MovieCard'
+import ProductCard from '../ProductCard'
+// import Text from '../foundation/Text'
 
 interface IShoppingCart {
   onCheckout: () => void
@@ -12,11 +13,27 @@ interface IShoppingCart {
 export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
   const { product, dispatchProduct } = useContext(ContextCart)
 
+  useEffect(() => {
+    console.log(product)
+  }, [product])
+
   return (
+    <Box
+    display='flex'
+    flex-direction='column'
+    style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      margin: 'auto',
+      background: 'rgba(0, 0, 0, 0.9)'
+    }}
+    >
     <aside
       style={{
         position: 'absolute',
-        zIndex: 1,
         right: 0
       }}
     >
@@ -44,6 +61,12 @@ export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
             </Button>
 
             <Button
+              onClick={() => onCheckout()}
+            >
+              {<Close />}
+            </Button>
+
+            <Button
               variant='outlined'
               endIcon={<Delete />}
               size='small'
@@ -54,10 +77,10 @@ export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
           </Box>
 
           {product.length > 0 && product.map((item) => (
-            <MovieCard
+            <ProductCard
               nProduct={item.nProduct}
               price={item.game.price}
-              removeMovie={() => dispatchProduct({
+              removeProduct={() => dispatchProduct({
                 type: 'removeProduct',
                 payload: item
               })}
@@ -65,7 +88,22 @@ export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
               key={item.game.id}
             />
           ))}
+
+          <hr style={{
+            width: '90%',
+            border: 0,
+            borderTop: '1px solid #CCC '
+          }}/>
         </Box>
+
+        {/* {total > 0 &&
+          <Text color='black'>Total {
+            product.reduce((prev, current) => {
+              return prev + current.nProduct * current.game.price
+            }, 0)
+          }</Text>
+        } */}
       </aside>
+    </Box>
   )
 }

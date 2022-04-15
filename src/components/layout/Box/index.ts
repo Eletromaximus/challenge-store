@@ -13,8 +13,8 @@ interface IBox {
   backgroundColor?: string | object,
   boxShadown?: string | object,
   padding?: string | object,
-  width?: string | object,
-  height?: string | object,
+  width?: string | object | number,
+  height?: string | object | number,
   alignItems?: string | object
   border?: string | object
   margin?: string | object

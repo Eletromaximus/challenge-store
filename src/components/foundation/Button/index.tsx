@@ -16,7 +16,8 @@ interface IButton {
   name?: string,
   color?: string,
   width?: string,
-  style?: object
+  style?: object,
+  disable?: boolean
 }
 
 const ButtonBase = styled.button<IButton>`

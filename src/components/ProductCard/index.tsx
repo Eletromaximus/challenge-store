@@ -2,14 +2,14 @@ import { Button } from '@mui/material'
 import { Delete } from '@mui/icons-material'
 import { Box } from '../layout/Box'
 
-interface IMovieCard {
+interface IProductCard {
   title: string,
   nProduct: number,
   price: number,
-  removeMovie: () => void
+  removeProduct: () => void
 }
 
-export default function MovieCard (item: IMovieCard) {
+export default function ProductCard (item: IProductCard) {
   return (
     <Box
       key={item.title}
@@ -28,14 +28,17 @@ export default function MovieCard (item: IMovieCard) {
         <img src="./icone-loading.png" alt="" />
       </Box>
 
-      <Box className="name-of-product">
+      <Box
+        className="name-of-product"
+        width={200}
+      >
         {item.title.substring(0, 18)}
       </Box>
 
       <Box
         justifyContent='space-between'
         display='flex'
-        width='90px'
+        width='100px'
       >
         <p>{item.nProduct}</p>
         <p>R$ {item.price}</p>
@@ -45,7 +48,7 @@ export default function MovieCard (item: IMovieCard) {
         variant='outlined'
         endIcon={<Delete />}
         size='small'
-        onClick={() => item.removeMovie()}
+        onClick={() => item.removeProduct()}
       />
     </Box>
   )

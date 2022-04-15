@@ -4,15 +4,26 @@ import { products } from '../../components/Products'
 import Button from '../../components/foundation/Button'
 import useOrder from '../../components/hooks/useOrder'
 import Card, { IProduct } from '../../components/Card'
-import WebSitePageWrapper from '../../components/WebSiteWrapper'
+import ContextProvider from '../../components/Provider'
+import Menu from '../../components/Menu'
+import GlobalStyle from '../../theme/GlobalStyle'
+import { useState } from 'react'
+import { Box } from '../../components/layout/Box'
+import ShoppingCart from '../../components/ShoppingCart'
 
 export default function Home () {
   const [items, setItems] = useOrder(products)
+  const [shopping, setShopping] = useState(false)
 
   return (
-    <WebSitePageWrapper
-      menuProps={true}
-    >
+    <ContextProvider>
+      <GlobalStyle />
+
+      <Menu onShopping={() =>
+        setShopping(!shopping)
+        }
+      />
+
       <Grid.Col
         value={{
           md: 10
@@ -56,6 +67,18 @@ export default function Home () {
           </Button>
         </Navbar>
 
+        <Box
+          display='flex'
+          justifyContent='space-between'
+          width='100%'
+        >
+          {shopping && <ShoppingCart
+            onCheckout={
+              () => setShopping(!shopping)
+            }
+          />}
+        </Box>
+
         <ListStyle>
           {items && items.map((item: IProduct) => {
             return <li key={item.id}>
@@ -68,8 +91,8 @@ export default function Home () {
               />
             </li>
           })}
-      </ListStyle>
+        </ListStyle>
       </Grid.Col>
-    </WebSitePageWrapper>
+    </ContextProvider>
   )
 }

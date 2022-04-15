@@ -1,4 +1,4 @@
-import { IconContainer, MenuWrapper } from './styles'
+import { MenuWrapper } from './styles'
 import Text from '../foundation/Text'
 import { useContext, useEffect, useState } from 'react'
 import { ModeContext } from '../WebSiteWrapper/provider'
@@ -7,7 +7,11 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { ContextCart } from '../Provider'
 
-export default function Menu () {
+interface IMenu {
+  onShopping: () => void
+}
+
+export default function Menu ({ onShopping }: IMenu) {
   const modeChange = useContext(ModeContext)
   const { product } = useContext(ContextCart)
   const [like, setLike] = useState(true)
@@ -41,9 +45,11 @@ export default function Menu () {
         Light/Dark
       </Button>
 
-      <IconContainer>
+      <Button
+        onClick={() => onShopping()}
+      >
         {changeIcon}
-      </IconContainer>
+      </Button>
     </MenuWrapper>
   )
 }
