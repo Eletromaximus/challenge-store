@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button'
 import { Delete, Close } from '@mui/icons-material'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { Box } from '../layout/Box'
 import { ContextCart } from '../Provider'
 import ProductCard from '../ProductCard'
@@ -12,10 +12,6 @@ interface IShoppingCart {
 
 export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
   const { product, dispatchProduct } = useContext(ContextCart)
-
-  useEffect(() => {
-    console.log(product)
-  }, [product])
 
   return (
     <Box
@@ -95,14 +91,6 @@ export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
             borderTop: '1px solid #CCC '
           }}/>
         </Box>
-
-        {/* {total > 0 &&
-          <Text color='black'>Total {
-            product.reduce((prev, current) => {
-              return prev + current.nProduct * current.game.price
-            }, 0)
-          }</Text>
-        } */}
       </aside>
     </Box>
   )

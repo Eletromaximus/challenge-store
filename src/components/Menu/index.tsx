@@ -12,7 +12,7 @@ interface IMenu {
 }
 
 export default function Menu ({ onShopping }: IMenu) {
-  const modeChange = useContext(ModeContext)
+  const { setThema } = useContext(ModeContext)
   const { product } = useContext(ContextCart)
   const [like, setLike] = useState(true)
 
@@ -39,7 +39,7 @@ export default function Menu ({ onShopping }: IMenu) {
 
       <Button
         onClick={
-          () => modeChange.toggleModeContext()
+          () => setThema()
         }
       >
         Light/Dark

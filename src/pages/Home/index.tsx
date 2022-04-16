@@ -4,23 +4,19 @@ import { products } from '../../components/Products'
 import Button from '../../components/foundation/Button'
 import useOrder from '../../components/hooks/useOrder'
 import Card, { IProduct } from '../../components/Card'
-import ContextProvider from '../../components/Provider'
+import ContextProvider, { ContextCart } from '../../components/Provider'
 import Menu from '../../components/Menu'
-import GlobalStyle from '../../theme/GlobalStyle'
-import { useState } from 'react'
+import { useContext } from 'react'
 import { Box } from '../../components/layout/Box'
 import ShoppingCart from '../../components/ShoppingCart'
 
 export default function Home () {
   const [items, setItems] = useOrder(products)
-  const [shopping, setShopping] = useState(false)
+  const { shopping, setShopping } = useContext(ContextCart)
 
   return (
     <ContextProvider>
-      <GlobalStyle />
-
-      <Menu onShopping={() =>
-        setShopping(!shopping)
+      <Menu onShopping={() => setShopping()
         }
       />
 
@@ -74,7 +70,7 @@ export default function Home () {
         >
           {shopping && <ShoppingCart
             onCheckout={
-              () => setShopping(!shopping)
+              () => setShopping()
             }
           />}
         </Box>
