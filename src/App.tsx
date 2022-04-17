@@ -1,11 +1,15 @@
-import WebSiteGlobalProvider from './components/WebSiteWrapper/provider'
+import CartPage from './pages/CartPage'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 
 function App () {
   return (
-    <WebSiteGlobalProvider>
-      <Home />
-    </WebSiteGlobalProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/checkout' element={<CartPage />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import { Delete } from '@mui/icons-material'
 import { Box } from '../layout/Box'
-
+import Text from '../foundation/Text'
 interface IProductCard {
   title: string,
   nProduct: number,
@@ -12,7 +12,6 @@ interface IProductCard {
 export default function ProductCard (item: IProductCard) {
   return (
     <Box
-      key={item.title}
       className="product"
       width='100%'
       padding='5px'
@@ -32,7 +31,9 @@ export default function ProductCard (item: IProductCard) {
         className="name-of-product"
         width={200}
       >
-        {item.title.substring(0, 18)}
+        <Text color='black'>
+          {item.title.substring(0, 18)}
+        </Text>
       </Box>
 
       <Box

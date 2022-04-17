@@ -4,14 +4,18 @@ import { useContext } from 'react'
 import { Box } from '../layout/Box'
 import { ContextCart } from '../Provider'
 import ProductCard from '../ProductCard'
-// import Text from '../foundation/Text'
 
 interface IShoppingCart {
-  onCheckout: () => void
+  onClose: () => void
 }
 
-export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
-  const { product, dispatchProduct } = useContext(ContextCart)
+export default function ShoppingCart (
+  { onClose }: IShoppingCart
+) {
+  const {
+    product,
+    dispatchProduct
+  } = useContext(ContextCart)
 
   return (
     <Box
@@ -51,13 +55,13 @@ export default function ShoppingCart ({ onCheckout }: IShoppingCart) {
             margin='5px'
           >
             <Button
-              onClick={() => onCheckout()}
+              href='/checkout'
             >
               <h4>Meu Carrinho</h4>
             </Button>
 
             <Button
-              onClick={() => onCheckout()}
+              onClick={() => onClose()}
             >
               {<Close />}
             </Button>

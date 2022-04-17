@@ -1,9 +1,8 @@
 import { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import propToStyle from '../../../theme/utils/propsToStyle'
 import { TextStyleVariants } from '../Text'
-// import get from 'lodash/get'
-
 interface IButton {
   variant: string,
   target?: string,
@@ -33,13 +32,25 @@ const ButtonBase = styled.button<IButton>`
   background-color: transparent;
   border: none;
 `
-// color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)}
-export default function Button ({ variant, children, ...props }: IButton) {
-  return (
-    <ButtonBase variant={variant} {...props} >
-      {children}
-    </ButtonBase>
-  )
+export default function Button ({
+  variant,
+  children,
+  href,
+  ...props
+}: IButton) {
+  if (href) {
+    return <Link to={href}>
+      <ButtonBase variant={variant} {...props} >
+        {children}
+      </ButtonBase>
+    </Link>
+  } else {
+    return (
+      <ButtonBase variant={variant} {...props} >
+        {children}
+      </ButtonBase>
+    )
+  }
 }
 
 Button.defaultProps = {

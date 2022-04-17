@@ -66,6 +66,14 @@ const TextBase = styled.span<Props>`
   ${propToStyle('padding')}
   ${propToStyle('paddingRight')}
   ${propToStyle('paddingLeft')}
+
+  color: ${({ color, theme }) => {
+    if (color) {
+      return color
+    } else {
+      return theme.colors.text
+    }
+  }}
 `
 // ;
 export default function Text ({ variant, tag, children, ...props }: Props) {
