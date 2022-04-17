@@ -18,6 +18,7 @@ interface IBox {
   alignItems?: string | object
   border?: string | object
   margin?: string | object
+  borderRadius?: string | object
 }
 
 export const Box = styled.div<IBox>`
@@ -37,4 +38,10 @@ export const Box = styled.div<IBox>`
   ${propToStyle('height')}
   ${propToStyle('border')}
   ${propToStyle('margin')}
+  ${propToStyle('borderRadius')}
 `
+Box.defaultProps = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+}

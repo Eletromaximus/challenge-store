@@ -3,6 +3,7 @@ import Text from '../foundation/Text'
 import Button from '../foundation/Button'
 import { useContext } from 'react'
 import { ContextCart } from '../Provider'
+import { Box } from '../layout/Box'
 
 export interface IProduct {
   id: number,
@@ -17,34 +18,55 @@ export default function Card (game: IProduct) {
 
   return (
     <CardStyle>
-      <Button
-        style={{
-          borderRadius: '5px'
-        }}
-        onClick={() => dispatchProduct({
-          type: 'addProduct',
-          payload: game
-        })}
-      >
+      <Box>
         <img
           src={`../assets/${game.image}`}
           alt={game.name}
           width={250}
         />
+
         <Text
-          margin='20px 0 0 20px'
+          margin='10px 5px'
           color='#211B1B'
+          tag='p'
         >
-          {game.name}
+          <b>{game.name}</b>
         </Text>
-        <Text
-          variant='title'
-          margin='10px 0 0 20px'
-          color='#211B1B'
+      </Box>
+
+      <Text
+        variant='paragraph1'
+        margin='5px'
+        color='#211B1B'
+      >
+        <b>Preço: </b> R$ {game.price}
+      </Text>
+
+      <Text
+        variant='paragraph1'
+        margin='5px'
+        color='#211B1B'
+      >
+        <b>Avaliação: </b> {game.score}%
+      </Text>
+
+      <Box
+        width='100%'
+      >
+        <Button
+          onClick={() => dispatchProduct({
+            type: 'addProduct',
+            payload: game
+          })}
+          backgroundColor='#007FFF'
+          color='white'
+          width='100px'
+          padding={8}
+          borderRadius={5}
         >
-          R$ {game.price}
-        </Text>
-      </Button>
+          Comprar
+        </Button>
+      </Box>
     </CardStyle>
   )
 }

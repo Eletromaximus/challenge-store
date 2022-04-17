@@ -7,6 +7,7 @@ export const MenuWrapper = styled.header`
   width: 100%;
   height: 100px;
   padding: 20px;
+  min-width: 400px;
 
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.text};

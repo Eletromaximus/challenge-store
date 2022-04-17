@@ -7,8 +7,6 @@ const GlobalStyle = createGlobalStyle`
   }
   ${normalize}
   body {
-    display: flex;
-    min-height: 100vh;
     box-sizing: border-box;
     margin: 0;
     padding: 0;

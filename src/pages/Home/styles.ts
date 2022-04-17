@@ -1,23 +1,36 @@
 import styled from 'styled-components'
 
 export const ListStyle = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
   list-style: none;
-  flex-wrap: wrap;
-  justify-content: start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  
+  div {
+    margin: 10px 10px 0 0;
+  }
 
-  li {
-    padding: 0%;
-    width: auto;
-    margin: 20px 20px 0 0;
+  @media only screen and (max-width: 1450px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 1080px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 630px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `
 export const Navbar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
-  height: 20px;
+  height: 40px;
   margin: 0;
   padding: 0;
+  min-width: 400px;
 
   background-color: ${({ theme }) => theme.colors.secundary};
 `

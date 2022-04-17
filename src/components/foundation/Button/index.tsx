@@ -12,8 +12,10 @@ interface IButton {
   paddingRight?: string | object,
   padding?: string | object | number,
   margin?: string | object | number,
+  borderRadius?: string | object | number,
   name?: string,
   color?: string,
+  backgroundColor?: string,
   width?: string,
   style?: object,
   disable?: boolean
@@ -23,13 +25,29 @@ const ButtonBase = styled.button<IButton>`
  
   ${(props) => TextStyleVariants[props.variant]};
   ${propToStyle('color')};
+  ${propToStyle('backgroundColor')};
   ${propToStyle('paddingRight')};
   ${propToStyle('margin')};
   ${propToStyle('padding')};
   ${propToStyle('width')};
+  ${propToStyle('borderRadius')};
 
-  color: ${({ theme }) => theme.colors.text};
-  background-color: transparent;
+  color: ${({ color, theme }) => {
+    if (color) {
+      return color
+    } else {
+      return theme.colors.text
+    }
+  }};
+
+  background-color: ${({ backgroundColor }) => {
+    if (backgroundColor) {
+      return backgroundColor
+    } else {
+      return 'transparent'
+    }
+  }};
+
   border: none;
 `
 export default function Button ({

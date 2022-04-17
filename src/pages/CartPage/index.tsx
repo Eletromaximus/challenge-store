@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import Button from '../../components/foundation/Button'
 import Text from '../../components/foundation/Text'
 import { Grid } from '../../components/layout/Grid'
@@ -8,6 +8,9 @@ import WebSiteWrapper from '../../components/WebSiteWrapper'
 export default function CartPage () {
   const { dispatchProduct, product } = useContext(ContextCart)
 
+  useEffect(() => {
+    console.log(product)
+  })
   return (
     <WebSiteWrapper>
       <Grid.Col
@@ -19,15 +22,21 @@ export default function CartPage () {
             key={product.game.name}
           >
             <Grid.Row>
-              <Text>
+              <Text
+                color='black'
+              >
                 {product.game.name} Quantidade:
               </Text>
 
-              <Text>
+              <Text
+                color='black'
+              >
                 {product.nProduct} X {product.game.price}
               </Text>
 
-              <Text>
+              <Text
+                color='black'
+              >
                 Total: {product.nProduct * product.game.price}
               </Text>
             </Grid.Row>

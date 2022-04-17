@@ -19,17 +19,15 @@ export default function ShoppingCart (
 
   return (
     <Box
-    display='flex'
-    flex-direction='column'
-    style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      margin: 'auto',
-      background: 'rgba(0, 0, 0, 0.9)'
-    }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        margin: 'auto',
+        background: 'rgba(0, 0, 0, 0.7)'
+      }}
     >
     <aside
       style={{
@@ -44,14 +42,12 @@ export default function ShoppingCart (
             xs: '320px'
           }}
           height='150vh'
-          display='flex'
-          flexDirection='column'
           border='1px solid gray'
           backgroundColor='#FFFFFF'
         >
           <Box
-            display='flex'
-            justifyContent='space-between'
+            flexDirection='row'
+            justifyContent='space-around'
             margin='5px'
           >
             <Button
@@ -78,6 +74,7 @@ export default function ShoppingCart (
 
           {product.length > 0 && product.map((item) => (
             <ProductCard
+              image={item.game.image}
               nProduct={item.nProduct}
               price={item.game.price}
               removeProduct={() => dispatchProduct({

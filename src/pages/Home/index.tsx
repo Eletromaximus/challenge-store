@@ -16,30 +16,25 @@ export default function Home () {
           onClick={
             () => setItems('price')
           }
-          >
-          Preço
-        </Button>
-
-        <Button
-          onClick={
-            () => setItems('id')
-          }
+          color='black'
         >
-          id
+          Preço
         </Button>
 
         <Button
           onClick={
             () => setItems('score')
           }
-          >
-          Score
+          color='black'
+        >
+          Avaliação
         </Button>
 
         <Button
           onClick={
             () => setItems('name')
           }
+          color='black'
         >
           Nome
         </Button>
@@ -48,26 +43,22 @@ export default function Home () {
       <Grid.Col
         alignItems='center'
         value={{
-          xl: 10,
-          lg: 11,
-          md: 11,
-          sm: 11
+          md: 10,
+          sm: 12
         }}
-        offset={1}
-        padding='0'
+        offset={0}
       >
 
-        <ListStyle>
+        <ListStyle id='list'>
           {items && items.map((item: IProduct) => {
-            return <li key={item.id}>
-              <Card
-                id={item.id}
-                image={item.image}
-                name={item.name}
-                price={item.price}
-                score={item.score}
-                />
-            </li>
+            return <Card
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+              score={item.score}
+            />
           })}
         </ListStyle>
       </Grid.Col>
