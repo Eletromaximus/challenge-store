@@ -1,15 +1,36 @@
 import CartPage from './pages/CartPage'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
+import WebSiteWrapper from './components/WebSiteWrapper'
+import { useState } from 'react'
+import Menu from './components/Menu'
+import ShoppingCart from './components/ShoppingCart'
 
 function App () {
+  const [page, setPage] = useState(false)
+  const [littleCart, setLittleCart] = useState(false)
+
+  const selectPage = page === false
+    ? <Home />
+    : <CartPage />
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/checkout' element={<CartPage />}/>
-      </Routes>
-    </BrowserRouter>
+    <WebSiteWrapper>
+      <Menu
+        onLittleCart={() => setLittleCart(!littleCart)}
+        onHome={() => setPage(false)}
+      />
+
+      {selectPage}
+
+      {littleCart && <ShoppingCart
+        changePage={() => {
+          setPage(true)
+          setLittleCart(false)
+        }}
+        onClose={() => setLittleCart(!littleCart)}
+        />
+      }
+    </WebSiteWrapper>
   )
 }
 

@@ -43,7 +43,9 @@ export default function ProductCard (item: IProductCard) {
         <Text
           color='black'
         >
-          R$ {item.price}
+          {item.price.toLocaleString('pt-br', {
+            style: 'currency', currency: 'BRL'
+          })}
         </Text>
       </Box>
 

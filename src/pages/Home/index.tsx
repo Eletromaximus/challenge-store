@@ -4,64 +4,63 @@ import { products } from '../../components/Products'
 import Button from '../../components/foundation/Button'
 import useOrder from '../../components/hooks/useOrder'
 import Card, { IProduct } from '../../components/Card'
-import WebSiteWrapper from '../../components/WebSiteWrapper'
 
 export default function Home () {
   const [items, setItems] = useOrder(products)
 
   return (
-    <WebSiteWrapper>
-      <Navbar>
-        <Button
-          onClick={
-            () => setItems('price')
-          }
-          color='black'
+    <>
+    <Navbar>
+      <Button
+        onClick={
+          () => setItems('price')
+        }
+        color='black'
         >
-          Preço
-        </Button>
+        Preço
+      </Button>
 
-        <Button
-          onClick={
-            () => setItems('score')
-          }
-          color='black'
+      <Button
+        onClick={
+          () => setItems('score')
+        }
+        color='black'
         >
-          Avaliação
-        </Button>
+        Avaliação
+      </Button>
 
-        <Button
-          onClick={
-            () => setItems('name')
-          }
-          color='black'
+      <Button
+        onClick={
+          () => setItems('name')
+        }
+        color='black'
         >
-          Nome
-        </Button>
-      </Navbar>
+        Nome
+      </Button>
+    </Navbar>
 
-      <Grid.Col
-        alignItems='center'
-        value={{
-          md: 10,
-          sm: 12
-        }}
-        offset={0}
+    <Grid.Col
+      alignItems='center'
+      value={{
+        md: 10,
+        sm: 12
+      }}
+      offset={0}
       >
 
-        <ListStyle id='list'>
-          {items && items.map((item: IProduct) => {
-            return <Card
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              name={item.name}
-              price={item.price}
-              score={item.score}
-            />
-          })}
-        </ListStyle>
-      </Grid.Col>
-    </WebSiteWrapper>
+      <ListStyle id='list'>
+        {items && items.map((item: IProduct) => {
+          return <Card
+          key={item.id}
+          id={item.id}
+          image={item.image}
+          name={item.name}
+          price={item.price}
+          score={item.score}
+          />
+        })}
+      </ListStyle>
+    </Grid.Col>
+        </>
   )
 }

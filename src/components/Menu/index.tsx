@@ -8,10 +8,14 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import { ContextCart } from '../Provider'
 
 interface IMenu {
-  onCheckout: () => void
+  onLittleCart: () => void,
+  onHome: () => void
 }
 
-export default function Menu ({ onCheckout }: IMenu) {
+export default function Menu ({
+  onLittleCart,
+  onHome
+}: IMenu) {
   const { setThema } = useContext(ModeContext)
   const { product } = useContext(ContextCart)
   const [like, setLike] = useState(true)
@@ -32,7 +36,7 @@ export default function Menu ({ onCheckout }: IMenu) {
   return (
     <MenuWrapper>
       <Button
-        href='/'
+        onClick={() => onHome()}
       >
         <Text
           variant='title'
@@ -51,7 +55,7 @@ export default function Menu ({ onCheckout }: IMenu) {
 
       <Button
         onClick={() => {
-          onCheckout()
+          onLittleCart()
         }}
       >
         {changeIcon}

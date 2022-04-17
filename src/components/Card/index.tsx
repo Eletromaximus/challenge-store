@@ -39,7 +39,11 @@ export default function Card (game: IProduct) {
         margin='5px'
         color='#211B1B'
       >
-        <b>Preço: </b> R$ {game.price}
+        <b>Preço: </b> {
+          game.price.toLocaleString('pt-BR', {
+            style: 'currency', currency: 'BRL'
+          })
+        }
       </Text>
 
       <Text
@@ -47,7 +51,7 @@ export default function Card (game: IProduct) {
         margin='5px'
         color='#211B1B'
       >
-        <b>Avaliação: </b> {game.score}%
+        <b>Avaliações: </b> {game.score}
       </Text>
 
       <Box

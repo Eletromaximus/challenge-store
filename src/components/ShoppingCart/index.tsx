@@ -6,12 +6,13 @@ import { ContextCart } from '../Provider'
 import ProductCard from '../ProductCard'
 
 interface IShoppingCart {
+  changePage: () => void
   onClose: () => void
 }
-
-export default function ShoppingCart (
-  { onClose }: IShoppingCart
-) {
+export default function ShoppingCart ({
+  changePage,
+  onClose
+}: IShoppingCart) {
   const {
     product,
     dispatchProduct
@@ -51,7 +52,7 @@ export default function ShoppingCart (
             margin='5px'
           >
             <Button
-              href='/checkout'
+              onClick={() => changePage()}
             >
               <h4>Meu Carrinho</h4>
             </Button>
