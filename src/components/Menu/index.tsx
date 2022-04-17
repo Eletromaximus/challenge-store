@@ -3,8 +3,8 @@ import Text from '../foundation/Text'
 import { useContext, useEffect, useState } from 'react'
 import { ModeContext } from '../WebSiteWrapper/provider'
 import Button from '../foundation/Button'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import FavoriteIcon from '@mui/icons-material/Favorite'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { ContextCart } from '../Provider'
 
 interface IMenu {
@@ -30,8 +30,8 @@ export default function Menu ({
 
   const changeIcon =
     like === false
-      ? <FavoriteBorderIcon fontSize='large' />
-      : <FavoriteIcon fontSize='large' />
+      ? <AddShoppingCartIcon fontSize='large' />
+      : <ShoppingCartIcon fontSize='large' />
 
   return (
     <MenuWrapper>

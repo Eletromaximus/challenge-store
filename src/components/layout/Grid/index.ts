@@ -18,6 +18,8 @@ interface IProps {
   paddingRight?: string | object;
   padding?: string | object;
   paddingLeft?: string | object;
+  backgroundColor?: string | object;
+  height?: string | object;
 }
 
 interface IContainer {
@@ -69,8 +71,11 @@ export const Grid = {
     ${propToStyle('paddingLeft')}
     ${propToStyle('marginRight')}
     ${propToStyle('justifyContent')}
+    ${propToStyle('alignItems')}
     ${propToStyle('marginTop')}
     ${propToStyle('marginBottom')}
+    ${propToStyle('height')}
+    ${propToStyle('padding')}
   `,
   Col: styled.div<IProps>`
     padding-right: 16px;
@@ -180,6 +185,8 @@ export const Grid = {
     ${propToStyle('paddingRight')}
     ${propToStyle('padding')}
     ${propToStyle('margin')}
+    ${propToStyle('backgroundColor')}
+    ${propToStyle('height')}
   `
 
 }

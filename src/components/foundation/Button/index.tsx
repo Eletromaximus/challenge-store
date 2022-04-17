@@ -13,6 +13,7 @@ interface IButton {
   padding?: string | object | number,
   margin?: string | object | number,
   borderRadius?: string | object | number,
+  border?: string | object,
   name?: string,
   color?: string,
   backgroundColor?: string,
@@ -31,6 +32,7 @@ const ButtonBase = styled.button<IButton>`
   ${propToStyle('padding')};
   ${propToStyle('width')};
   ${propToStyle('borderRadius')};
+  ${propToStyle('border')};
 
   color: ${({ color, theme }) => {
     if (color) {

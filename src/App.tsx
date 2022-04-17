@@ -4,6 +4,7 @@ import WebSiteWrapper from './components/WebSiteWrapper'
 import { useState } from 'react'
 import Menu from './components/Menu'
 import ShoppingCart from './components/ShoppingCart'
+import { Box } from './components/layout/Box'
 
 function App () {
   const [page, setPage] = useState(false)
@@ -15,21 +16,26 @@ function App () {
 
   return (
     <WebSiteWrapper>
-      <Menu
-        onLittleCart={() => setLittleCart(!littleCart)}
-        onHome={() => setPage(false)}
-      />
-
-      {selectPage}
-
-      {littleCart && <ShoppingCart
-        changePage={() => {
-          setPage(true)
-          setLittleCart(false)
-        }}
-        onClose={() => setLittleCart(!littleCart)}
+      <Box
+        display='block'
+      >
+        <Menu
+          onLittleCart={() => setLittleCart(!littleCart)}
+          onHome={() => setPage(false)}
         />
-      }
+
+        {selectPage}
+
+        {littleCart && <ShoppingCart
+          changePage={() => {
+            setPage(true)
+            setLittleCart(false)
+          }}
+          onClose={() => setLittleCart(!littleCart)}
+          />
+        }
+      </Box>
+
     </WebSiteWrapper>
   )
 }

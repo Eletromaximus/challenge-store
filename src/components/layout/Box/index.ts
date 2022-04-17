@@ -15,9 +15,9 @@ interface IBox {
   padding?: string | object,
   width?: string | object | number,
   height?: string | object | number,
-  alignItems?: string | object
-  border?: string | object
-  margin?: string | object
+  alignItems?: string | object,
+  border?: string | object,
+  margin?: string | object,
   borderRadius?: string | object
 }
 

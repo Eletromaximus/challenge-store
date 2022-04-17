@@ -34,3 +34,10 @@ export const Navbar = styled.div`
 
   background-color: ${({ theme }) => theme.colors.secundary};
 `
+export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: center;
+  width: 80%;
+`
